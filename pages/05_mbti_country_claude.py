@@ -24,15 +24,7 @@ df = load_data()
 # MBTI 유형 목록 (Country 컬럼 제외)
 mbti_types = df.columns[1:].tolist()
 
-# 사이드바에 MBTI 선택
-st.sidebar.header("⚙️ 설정")
-selected_mbti = st.sidebar.selectbox(
-    "MBTI 유형을 선택하세요:",
-    mbti_types,
-    index=mbti_types.index('INFP')  # 기본값: INFP
-)
-
-# 선택된 MBTI에 대한 설명
+# MBTI 유형별 설명
 mbti_descriptions = {
     'INFJ': '내향적, 직관적, 감정적, 판단적 - 용기있는 수호자',
     'ISFJ': '내향적, 감각적, 감정적, 판단적 - 수호자',
@@ -52,6 +44,15 @@ mbti_descriptions = {
     'ESFJ': '외향적, 감각적, 감정적, 판단적 - 사교적인 외교관'
 }
 
+# 사이드바에 MBTI 선택
+st.sidebar.header("⚙️ 설정")
+selected_mbti = st.sidebar.selectbox(
+    "MBTI 유형을 선택하세요:",
+    mbti_types,
+    index=mbti_types.index('INFP')  # 기본값: INFP
+)
+
+# 선택된 MBTI에 대한 설명
 st.sidebar.info(f"**{selected_mbti}**\n\n{mbti_descriptions.get(selected_mbti, '')}")
 
 # 통계 정보
