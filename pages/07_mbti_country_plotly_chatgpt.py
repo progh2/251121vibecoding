@@ -109,7 +109,7 @@ fig_bottom.update_layout(
 # 막대에 값 표시 옵션 (원하면 주석 처리 풀어도 됨)
 fig_bottom.update_traces(
     hovertemplate="<b>%{x}</b><br>" +
-                  f"{selected_mbti} 비율: %{y:.3f}<extra></extra>"
+                  selected_mbti + " 비율: %{y:.3f}<extra></extra>"
 )
 
 st.plotly_chart(fig_bottom, use_container_width=True)
